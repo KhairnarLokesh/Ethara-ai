@@ -6,7 +6,7 @@ import { API_URL } from '../utils/api';
 function Auth({ onLoginSuccess, showToast, onBackToHome, initialView = 'signin' }) {
   const [view, setView] = useState(initialView); // signin, signup, forgot, reset
   const [loading, setLoading] = useState(false);
-  
+
   // Forms state
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -223,12 +223,13 @@ function Auth({ onLoginSuccess, showToast, onBackToHome, initialView = 'signin' 
         const buttonWidth = Math.min(380, window.innerWidth - 80);
         window.google.accounts.id.renderButton(
           document.getElementById('google-signin-btn'),
-          { 
-            theme: 'outline', 
-            size: 'large', 
-            width: buttonWidth, 
+          {
+            theme: 'filled_black',
+            size: 'large',
+            width: buttonWidth,
             text: 'signin_with',
-            shape: 'rectangular' 
+            shape: 'rectangular',
+            logo_alignment: 'center'
           }
         );
       } catch (err) {
@@ -246,7 +247,7 @@ function Auth({ onLoginSuccess, showToast, onBackToHome, initialView = 'signin' 
       justifyContent: 'center',
       minHeight: '100vh',
       padding: '2.5rem 1.5rem',
-      backgroundImage: 'radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.08) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.08) 0px, transparent 50%)',
+      backgroundImage: 'radial-gradient(at 0% 0%, rgba(230, 227, 224, 0.03) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(163, 230, 53, 0.04) 0px, transparent 50%)',
       position: 'relative'
     }}>
       {/* Background glow orbs */}
@@ -257,7 +258,7 @@ function Auth({ onLoginSuccess, showToast, onBackToHome, initialView = 'signin' 
         width: '350px',
         height: '350px',
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 60%)',
+        background: 'radial-gradient(circle, rgba(163, 230, 53, 0.03) 0%, transparent 60%)',
         filter: 'blur(30px)',
         pointerEvents: 'none'
       }} />
@@ -273,18 +274,18 @@ function Auth({ onLoginSuccess, showToast, onBackToHome, initialView = 'signin' 
         border: '1px solid rgba(255, 255, 255, 0.07)'
       }}>
         {onBackToHome && (
-          <button 
-            type="button" 
+          <button
+            type="button"
             onClick={onBackToHome}
-            style={{ 
-              background: 'none', 
-              border: 'none', 
-              color: 'var(--text-secondary)', 
-              cursor: 'pointer', 
-              display: 'flex', 
-              alignItems: 'center', 
-              gap: '0.5rem', 
-              fontSize: '0.85rem', 
+            style={{
+              background: 'none',
+              border: 'none',
+              color: 'var(--text-secondary)',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              fontSize: '0.85rem',
               marginBottom: '2rem',
               padding: 0,
               transition: 'color var(--transition-fast)'
@@ -295,12 +296,10 @@ function Auth({ onLoginSuccess, showToast, onBackToHome, initialView = 'signin' 
             <span>Back to Home</span>
           </button>
         )}
-        
+
         {/* Logo/Header */}
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '2.5rem' }}>
-          <div className="kpi-icon-wrapper primary" style={{ width: '52px', height: '52px', borderRadius: '12px', marginBottom: '0.85rem', boxShadow: 'var(--shadow-glow)' }}>
-            <Package size={26} />
-          </div>
+          <img src="/inventory-management-app_hero-img.png" alt="Logo" style={{ width: '52px', height: '52px', borderRadius: '12px', marginBottom: '0.85rem', boxShadow: 'var(--shadow-glow)', objectFit: 'contain' }} />
           <h1 className="gradient-text" style={{ fontSize: '2.2rem', marginBottom: '0.25rem', fontFamily: 'var(--font-display)', fontWeight: 900, letterSpacing: '-0.03em' }}>Ethara Stock</h1>
           <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', fontWeight: 500 }}>Secure Inventory & Order Manager</p>
         </div>
@@ -347,8 +346,8 @@ function Auth({ onLoginSuccess, showToast, onBackToHome, initialView = 'signin' 
                   disabled={loading}
                   required
                 />
-                <button 
-                  type="button" 
+                <button
+                  type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   style={{ position: 'absolute', right: '1.1rem', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', display: 'flex', alignItems: 'center', padding: 0 }}
                 >
@@ -417,8 +416,8 @@ function Auth({ onLoginSuccess, showToast, onBackToHome, initialView = 'signin' 
                     disabled={loading}
                     required
                   />
-                  <button 
-                    type="button" 
+                  <button
+                    type="button"
                     onClick={() => setShowPassword(!showPassword)}
                     style={{ position: 'absolute', right: '1rem', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', display: 'flex', alignItems: 'center', padding: 0 }}
                   >
@@ -442,8 +441,8 @@ function Auth({ onLoginSuccess, showToast, onBackToHome, initialView = 'signin' 
                     disabled={loading}
                     required
                   />
-                  <button 
-                    type="button" 
+                  <button
+                    type="button"
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                     style={{ position: 'absolute', right: '1rem', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', display: 'flex', alignItems: 'center', padding: 0 }}
                   >
@@ -530,8 +529,8 @@ function Auth({ onLoginSuccess, showToast, onBackToHome, initialView = 'signin' 
                   disabled={loading}
                   required
                 />
-                <button 
-                  type="button" 
+                <button
+                  type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   style={{ position: 'absolute', right: '1.1rem', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', display: 'flex', alignItems: 'center', padding: 0 }}
                 >
@@ -555,8 +554,8 @@ function Auth({ onLoginSuccess, showToast, onBackToHome, initialView = 'signin' 
                   disabled={loading}
                   required
                 />
-                <button 
-                  type="button" 
+                <button
+                  type="button"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                   style={{ position: 'absolute', right: '1.1rem', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', display: 'flex', alignItems: 'center', padding: 0 }}
                 >
@@ -616,10 +615,10 @@ function Auth({ onLoginSuccess, showToast, onBackToHome, initialView = 'signin' 
               >
                 {/* SVG for Google Icon */}
                 <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
-                  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"/>
+                  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
+                  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+                  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05" />
+                  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335" />
                 </svg>
                 <span>Google Account (Simulated)</span>
               </button>

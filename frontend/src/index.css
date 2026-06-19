@@ -4,46 +4,46 @@
   --font-primary: 'Inter', sans-serif;
   --font-display: 'Outfit', sans-serif;
 
-  /* HSL Color Palette - Sleek Dark Slate / Deep Blue Cyber Theme */
-  --bg-primary: #05070f;      /* Midnight black-blue */
-  --bg-secondary: #0c0f1d;    /* Slate card/sidebar background */
-  --bg-tertiary: #161b33;     /* Focus card/input background */
+  /* HSL Color Palette - Stark DOSS Black & Lime-Beige Theme */
+  --bg-primary: #000000;      /* Stark pure black */
+  --bg-secondary: #09090b;    /* Charcoal card/sidebar background */
+  --bg-tertiary: #18181b;     /* Inputs and active highlights */
   
-  --glass-bg: rgba(12, 15, 29, 0.6);
-  --glass-border: rgba(255, 255, 255, 0.05);
-  --glass-border-hover: rgba(6, 182, 212, 0.25);
+  --glass-bg: rgba(9, 9, 11, 0.7);
+  --glass-border: rgba(230, 227, 224, 0.08);
+  --glass-border-hover: rgba(163, 230, 53, 0.25);
   
-  --primary: #06b6d4;         /* Electric Teal */
-  --primary-hover: #22d3ee;
-  --primary-glow: rgba(6, 182, 212, 0.15);
+  --primary: #a3e635;         /* Neon Lime Green */
+  --primary-hover: #bef264;
+  --primary-glow: rgba(163, 230, 53, 0.1);
   
-  --secondary: #6366f1;       /* Vibrant Indigo */
-  --secondary-hover: #818cf8;
-  --secondary-glow: rgba(99, 102, 241, 0.15);
+  --secondary: #e6e3e0;       /* Sophisticated Sandy Beige */
+  --secondary-hover: #ffffff;
+  --secondary-glow: rgba(230, 227, 224, 0.1);
   
-  --accent: #d946ef;          /* Neon Magenta */
-  --accent-glow: rgba(217, 70, 239, 0.15);
+  --accent: #bef264;          /* Lime Accent */
+  --accent-glow: rgba(190, 242, 100, 0.1);
   
   --success: #10b981;         /* Emerald Green */
-  --success-glow: rgba(16, 185, 129, 0.12);
+  --success-glow: rgba(16, 185, 129, 0.08);
   
   --warning: #f59e0b;         /* Amber Gold */
-  --warning-glow: rgba(245, 158, 11, 0.12);
+  --warning-glow: rgba(245, 158, 11, 0.08);
   
   --danger: #ef4444;          /* Crimson Rose */
   --danger-hover: #f87171;
-  --danger-glow: rgba(239, 68, 68, 0.12);
+  --danger-glow: rgba(239, 68, 68, 0.08);
 
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  --text-primary: #e6e3e0;    /* Warm beige typography */
+  --text-secondary: #a1a1aa;  /* Zinc text */
+  --text-muted: #71717a;      /* Muted grey */
   
-  --border-color: rgba(255, 255, 255, 0.06);
-  --border-focus: rgba(6, 182, 212, 0.4);
+  --border-color: rgba(230, 227, 224, 0.08);
+  --border-focus: #a3e635;
   
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 24px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
   --radius-full: 9999px;
   
   --transition-fast: 0.15s ease;
@@ -53,8 +53,8 @@
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 8px 16px -4px rgba(0, 0, 0, 0.3), 0 4px 8px -2px rgba(0, 0, 0, 0.2);
   --shadow-lg: 0 20px 32px -8px rgba(0, 0, 0, 0.5), 0 8px 16px -4px rgba(0, 0, 0, 0.3);
-  --shadow-glow: 0 0 25px rgba(6, 182, 212, 0.2);
-  --shadow-accent: 0 0 25px rgba(217, 70, 239, 0.15);
+  --shadow-glow: 0 0 25px rgba(163, 230, 53, 0.15);
+  --shadow-accent: 0 0 25px rgba(190, 242, 100, 0.15);
 }
 
 * {
@@ -70,11 +70,10 @@ body {
   min-height: 100vh;
   line-height: 1.6;
   overflow-x: hidden;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   background-image: 
-    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.07) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.07) 0px, transparent 50%),
-    radial-gradient(at 50% 50%, rgba(217, 70, 239, 0.02) 0px, transparent 60%);
+    radial-gradient(at 0% 0%, rgba(163, 230, 53, 0.04) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(230, 227, 224, 0.03) 0px, transparent 50%);
 }
 
 #root {
@@ -111,8 +110,9 @@ body {
 }
 
 .glass-panel:hover {
-  border-color: var(--glass-border-hover);
-  box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.6), 0 0 20px -5px var(--primary-glow);
+  border-color: var(--primary);
+  box-shadow: 0 8px 30px -10px rgba(0, 0, 0, 0.8), 0 0 15px -3px var(--primary-glow);
+  transform: translateY(-2px);
 }
 
 /* Typography */
@@ -282,8 +282,8 @@ h1, h2, h3, h4, h5, h6 {
 .sidebar-link.active {
   background: var(--primary-glow);
   color: var(--primary);
-  border-color: rgba(6, 182, 212, 0.15);
-  box-shadow: 0 4px 12px -3px rgba(6, 182, 212, 0.1);
+  border-color: rgba(163, 230, 53, 0.2);
+  box-shadow: 0 4px 12px -3px rgba(163, 230, 53, 0.1);
   font-weight: 600;
 }
 
@@ -302,8 +302,8 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  background: linear-gradient(145deg, rgba(12, 15, 29, 0.7), rgba(22, 27, 51, 0.4));
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
 }
 
 .kpi-card::before {
@@ -312,8 +312,8 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   left: 0;
   width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, transparent, transparent);
+  height: 3px;
+  background: transparent;
   transition: background var(--transition-normal);
 }
 
@@ -323,6 +323,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .kpi-card:hover {
   transform: translateY(-4px);
+  border-color: var(--glass-border-hover);
 }
 
 .kpi-info h3 {
@@ -395,7 +396,7 @@ h1, h2, h3, h4, h5, h6 {
   overflow-x: auto;
   border-radius: var(--radius-md);
   border: 1px solid var(--border-color);
-  background: rgba(12, 15, 29, 0.3);
+  background: var(--bg-secondary);
 }
 
 .custom-table {
@@ -409,7 +410,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 1.1rem 1.5rem;
   font-weight: 600;
   color: var(--text-secondary);
-  background: rgba(22, 27, 51, 0.4);
+  background: rgba(24, 24, 27, 0.6);
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.07em;
@@ -438,7 +439,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Search Highlights */
 .search-highlight {
-  background: rgba(6, 182, 212, 0.25);
+  background: rgba(163, 230, 53, 0.25);
   color: var(--primary-hover);
   padding: 0.1rem 0.25rem;
   border-radius: 4px;
@@ -458,7 +459,7 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   height: 100%;
   border: 1px solid var(--border-color);
-  background: rgba(12, 15, 29, 0.5);
+  background: var(--bg-secondary);
   border-radius: var(--radius-md);
   position: relative;
   overflow: hidden;
@@ -467,7 +468,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .product-card:hover {
   transform: translateY(-4px);
-  border-color: var(--primary-glow);
+  border-color: var(--primary);
   box-shadow: var(--shadow-lg), 0 0 15px -3px var(--primary-glow);
 }
 
@@ -480,7 +481,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(22, 27, 51, 0.6) 0%, rgba(6, 182, 212, 0.08) 100%);
+  background: linear-gradient(135deg, rgba(24, 24, 27, 0.6) 0%, rgba(163, 230, 53, 0.05) 100%);
   border: 1px solid rgba(255, 255, 255, 0.03);
 }
 
@@ -585,7 +586,7 @@ h1, h2, h3, h4, h5, h6 {
   outline: none;
   border-color: var(--primary);
   background-color: var(--bg-secondary);
-  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15), inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0 3px rgba(163, 230, 53, 0.15), inset 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .form-row {
@@ -632,15 +633,15 @@ select.form-input {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  color: #040814;
+  background: var(--primary);
+  color: #000000;
   font-weight: 700;
-  box-shadow: 0 4px 15px -3px rgba(6, 182, 212, 0.3);
+  box-shadow: 0 4px 15px -3px rgba(163, 230, 53, 0.3);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, var(--primary-hover) 0%, var(--secondary-hover) 100%);
-  box-shadow: 0 0 25px rgba(6, 182, 212, 0.45);
+  background: var(--primary-hover);
+  box-shadow: 0 0 25px rgba(163, 230, 53, 0.45);
   transform: translateY(-2px);
 }
 
@@ -652,7 +653,7 @@ select.form-input {
 
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.05);
-  border-color: var(--text-muted);
+  border-color: var(--secondary);
 }
 
 .btn-danger {
@@ -994,8 +995,8 @@ select.form-input {
 }
 
 .pricing-card.premium {
-  border-color: rgba(99, 102, 241, 0.4);
-  background: linear-gradient(185deg, rgba(12, 15, 29, 0.8), rgba(99, 102, 241, 0.06));
+  border-color: rgba(163, 230, 53, 0.4);
+  background: linear-gradient(185deg, var(--bg-secondary), rgba(163, 230, 53, 0.04));
 }
 
 .pricing-card.premium::after {
@@ -1004,7 +1005,7 @@ select.form-input {
   top: 15px;
   right: -30px;
   background: var(--secondary);
-  color: #fff;
+  color: #000;
   font-size: 0.65rem;
   font-weight: 800;
   padding: 0.25rem 2rem;
@@ -1014,7 +1015,7 @@ select.form-input {
 
 .pricing-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(6, 182, 212, 0.3);
+  border-color: var(--primary);
 }
 
 /* FAQ item */

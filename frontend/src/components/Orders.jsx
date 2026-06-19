@@ -317,7 +317,7 @@ function Orders({ showToast }) {
         <div className="modal-overlay">
           <div className="modal-content glass-panel" style={{ maxWidth: '680px', padding: '0' }}>
             {/* Voucher Title Header */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(22, 27, 51, 0.4)', padding: '1.75rem 2.5rem', borderBottom: '1px solid var(--border-color)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(24, 24, 27, 0.6)', padding: '1.75rem 2.5rem', borderBottom: '1px solid var(--border-color)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                 <FileText size={22} style={{ color: 'var(--primary)' }} />
                 <h2 style={{ fontSize: '1.35rem', margin: 0 }}>INVOICE VOUCHER</h2>
@@ -353,7 +353,7 @@ function Orders({ showToast }) {
               {/* Items Purchased List */}
               <span style={{ color: 'var(--text-muted)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.06em', display: 'block', marginBottom: '0.75rem' }}>Line Items Summary</span>
               
-              <div className="table-container" style={{ background: 'rgba(0,0,0,0.1)', marginBottom: '2rem' }}>
+              <div className="table-container" style={{ background: 'var(--bg-primary)', marginBottom: '2rem' }}>
                 <table className="custom-table" style={{ width: '100%' }}>
                   <thead>
                     <tr>
@@ -437,7 +437,7 @@ function Orders({ showToast }) {
               </div>
 
               {/* Add Item Panel */}
-              <div className="glass-panel" style={{ padding: '1.25rem', marginBottom: '1.5rem', background: 'rgba(255, 255, 255, 0.01)', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
+              <div className="glass-panel" style={{ padding: '1.25rem', marginBottom: '1.5rem', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)' }}>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '1rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem', color: 'var(--text-primary)' }}>
                   Add Products Catalog
                 </h3>

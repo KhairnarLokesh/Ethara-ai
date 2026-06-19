@@ -174,10 +174,10 @@ function Products({ showToast }) {
   // Helper: Visual gradient generator for card thumbnails
   const getThumbnailGradient = (name) => {
     const gradients = [
-      'linear-gradient(135deg, rgba(22, 27, 51, 0.7) 0%, rgba(6, 182, 212, 0.12) 100%)',
-      'linear-gradient(135deg, rgba(22, 27, 51, 0.7) 0%, rgba(99, 102, 241, 0.12) 100%)',
-      'linear-gradient(135deg, rgba(22, 27, 51, 0.7) 0%, rgba(217, 70, 239, 0.12) 100%)',
-      'linear-gradient(135deg, rgba(22, 27, 51, 0.7) 0%, rgba(16, 185, 129, 0.12) 100%)'
+      'linear-gradient(135deg, rgba(9, 9, 11, 0.75) 0%, rgba(163, 230, 53, 0.08) 100%)',
+      'linear-gradient(135deg, rgba(9, 9, 11, 0.75) 0%, rgba(230, 227, 224, 0.08) 100%)',
+      'linear-gradient(135deg, rgba(9, 9, 11, 0.75) 0%, rgba(163, 230, 53, 0.12) 100%)',
+      'linear-gradient(135deg, rgba(9, 9, 11, 0.75) 0%, rgba(230, 227, 224, 0.12) 100%)'
     ];
     let hash = 0;
     for (let i = 0; i < name.length; i++) {
@@ -212,7 +212,7 @@ function Products({ showToast }) {
 
       {/* Search and Layout Toggle row */}
       <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap', alignItems: 'center' }}>
-        <div className="glass-panel" style={{ flexGrow: 1, padding: '0.9rem 1.5rem', display: 'flex', gap: '1rem', alignItems: 'center', background: 'rgba(12, 15, 29, 0.4)' }}>
+        <div className="glass-panel" style={{ flexGrow: 1, padding: '0.9rem 1.5rem', display: 'flex', gap: '1rem', alignItems: 'center', background: 'var(--bg-secondary)' }}>
           <Search size={20} style={{ color: 'var(--text-muted)' }} />
           <input
             type="text"

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { 
-  Package, ShieldCheck, Zap, Mail, LayoutDashboard, ShoppingCart, 
+import {
+  Package, ShieldCheck, Zap, Mail, LayoutDashboard, ShoppingCart,
   Users, ArrowRight, Check, Search, AlertTriangle, ArrowUpRight, ChevronDown
 } from 'lucide-react';
 
@@ -12,21 +12,21 @@ function Landing({ onGetStarted, onSignIn }) {
   const [activeFaq, setActiveFaq] = useState(null);
 
   const FAQ_ITEMS = [
-    { 
-      q: 'How do SMTP Low Stock alerts function?', 
-      a: 'Once configured with your SMTP server, the system monitors sales. The moment an order reduces a product\'s stock count below your threshold (e.g. 10 units), an automated notification is instantly dispatched to your operations email.' 
+    {
+      q: 'How do SMTP Low Stock alerts function?',
+      a: 'Once configured with your SMTP server, the system monitors sales. The moment an order reduces a product\'s stock count below your threshold (e.g. 10 units), an automated notification is instantly dispatched to your operations email.'
     },
-    { 
-      q: 'Can I import and export my customer and product list?', 
-      a: 'Absolutely. The platform supports clean JSON/CSV payloads via standard API routes, allowing integrations with your existing storefronts, ERPs, or custom fulfillment pipelines.' 
+    {
+      q: 'Can I import and export my customer and product list?',
+      a: 'Absolutely. The platform supports clean JSON/CSV payloads via standard API routes, allowing integrations with your existing storefronts, ERPs, or custom fulfillment pipelines.'
     },
-    { 
-      q: 'Does it support Single Sign-On (SSO)?', 
-      a: 'Yes. Secure authentication can be done using standard email accounts hashed with bcrypt, or directly in one click using Google OAuth2 integration.' 
+    {
+      q: 'Does it support Single Sign-On (SSO)?',
+      a: 'Yes. Secure authentication can be done using standard email accounts hashed with bcrypt, or directly in one click using Google OAuth2 integration.'
     },
-    { 
-      q: 'Is there a limit on transactions or users?', 
-      a: 'The Starter package is perfect for up to 1,000 SKUs. Our Growth and Enterprise plans support unlimited inventory items, advanced batch allocations, and multiple operations accounts.' 
+    {
+      q: 'Is there a limit on transactions or users?',
+      a: 'The Starter package is perfect for up to 1,000 SKUs. Our Growth and Enterprise plans support unlimited inventory items, advanced batch allocations, and multiple operations accounts.'
     }
   ];
 
@@ -38,8 +38,8 @@ function Landing({ onGetStarted, onSignIn }) {
     { name: 'Apple Magic Trackpad 2', sku: 'APL-MAGTRACK', price: 129.99, quantity: 3 }
   ];
 
-  const filteredMockupProducts = SIMULATED_PRODUCTS.filter(p => 
-    p.name.toLowerCase().includes(catalogSearch.toLowerCase()) || 
+  const filteredMockupProducts = SIMULATED_PRODUCTS.filter(p =>
+    p.name.toLowerCase().includes(catalogSearch.toLowerCase()) ||
     p.sku.toLowerCase().includes(catalogSearch.toLowerCase())
   );
 
@@ -60,7 +60,7 @@ function Landing({ onGetStarted, onSignIn }) {
         width: '450px',
         height: '450px',
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(6, 182, 212, 0.08) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(163, 230, 53, 0.04) 0%, transparent 70%)',
         filter: 'blur(40px)',
         pointerEvents: 'none',
         zIndex: 0
@@ -72,7 +72,7 @@ function Landing({ onGetStarted, onSignIn }) {
         width: '500px',
         height: '500px',
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(230, 227, 224, 0.03) 0%, transparent 70%)',
         filter: 'blur(40px)',
         pointerEvents: 'none',
         zIndex: 0
@@ -89,13 +89,11 @@ function Landing({ onGetStarted, onSignIn }) {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        background: 'rgba(5, 7, 15, 0.7)',
+        background: 'rgba(0, 0, 0, 0.8)',
         backdropFilter: 'blur(12px)'
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
-          <div className="kpi-icon-wrapper primary" style={{ width: '40px', height: '40px', borderRadius: '10px' }}>
-            <Package size={22} />
-          </div>
+          <img src="/inventory-management-app_hero-img.png" alt="Logo" style={{ width: '40px', height: '40px', borderRadius: '10px', objectFit: 'contain' }} />
           <span className="gradient-text" style={{ fontSize: '1.45rem', fontFamily: 'var(--font-display)', fontWeight: 900, letterSpacing: '-0.02em' }}>Ethara Stock</span>
         </div>
 
@@ -166,8 +164,8 @@ function Landing({ onGetStarted, onSignIn }) {
           padding: '1.75rem',
           borderRadius: 'var(--radius-lg)',
           boxShadow: 'var(--shadow-lg), 0 35px 70px -15px rgba(0,0,0,0.8)',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
-          background: 'rgba(12, 15, 29, 0.75)',
+          border: '1px solid var(--border-color)',
+          background: 'var(--bg-secondary)',
           textAlign: 'left'
         }}>
           {/* Header of Mockup */}
@@ -181,21 +179,21 @@ function Landing({ onGetStarted, onSignIn }) {
 
             {/* Simulated Tabs */}
             <div style={{ display: 'flex', gap: '0.25rem', background: 'rgba(0,0,0,0.3)', padding: '0.25rem', borderRadius: '8px' }}>
-              <button 
+              <button
                 onClick={() => setActiveMockupTab('overview')}
                 className={`landing-tab-btn ${activeMockupTab === 'overview' ? 'active' : ''}`}
                 style={{ fontSize: '0.8rem', padding: '0.4rem 0.85rem' }}
               >
                 KPI Metrics
               </button>
-              <button 
+              <button
                 onClick={() => setActiveMockupTab('alerts')}
                 className={`landing-tab-btn ${activeMockupTab === 'alerts' ? 'active' : ''}`}
                 style={{ fontSize: '0.8rem', padding: '0.4rem 0.85rem' }}
               >
                 Alerts Box
               </button>
-              <button 
+              <button
                 onClick={() => setActiveMockupTab('catalog')}
                 className={`landing-tab-btn ${activeMockupTab === 'catalog' ? 'active' : ''}`}
                 style={{ fontSize: '0.8rem', padding: '0.4rem 0.85rem' }}
@@ -244,11 +242,11 @@ function Landing({ onGetStarted, onSignIn }) {
                   <span style={{ fontSize: '0.8rem', color: 'var(--success)', display: 'flex', alignItems: 'center', gap: '0.25rem' }}><ArrowUpRight size={14} /> +24% growth</span>
                 </div>
                 <div style={{ height: '80px', display: 'flex', alignItems: 'flex-end', gap: '0.5rem', paddingBottom: '0.5rem' }}>
-                  <div style={{ height: '30%', flex: 1, background: 'rgba(6, 182, 212, 0.2)', border: '1px solid var(--primary)', borderRadius: '4px' }}></div>
-                  <div style={{ height: '45%', flex: 1, background: 'rgba(6, 182, 212, 0.2)', border: '1px solid var(--primary)', borderRadius: '4px' }}></div>
-                  <div style={{ height: '40%', flex: 1, background: 'rgba(6, 182, 212, 0.2)', border: '1px solid var(--primary)', borderRadius: '4px' }}></div>
-                  <div style={{ height: '65%', flex: 1, background: 'rgba(99, 102, 241, 0.2)', border: '1px solid var(--secondary)', borderRadius: '4px' }}></div>
-                  <div style={{ height: '90%', flex: 1, background: 'rgba(99, 102, 241, 0.4)', border: '1px solid var(--secondary)', borderRadius: '4px', boxShadow: '0 0 15px rgba(99,102,241,0.2)' }}></div>
+                  <div style={{ height: '30%', flex: 1, background: 'rgba(163, 230, 53, 0.1)', border: '1px solid var(--primary)', borderRadius: '4px' }}></div>
+                  <div style={{ height: '45%', flex: 1, background: 'rgba(163, 230, 53, 0.1)', border: '1px solid var(--primary)', borderRadius: '4px' }}></div>
+                  <div style={{ height: '40%', flex: 1, background: 'rgba(163, 230, 53, 0.1)', border: '1px solid var(--primary)', borderRadius: '4px' }}></div>
+                  <div style={{ height: '65%', flex: 1, background: 'rgba(230, 227, 224, 0.1)', border: '1px solid var(--secondary)', borderRadius: '4px' }}></div>
+                  <div style={{ height: '90%', flex: 1, background: 'rgba(230, 227, 224, 0.25)', border: '1px solid var(--secondary)', borderRadius: '4px', boxShadow: '0 0 15px rgba(230,227,224,0.15)' }}></div>
                 </div>
               </div>
             </div>
@@ -286,9 +284,9 @@ function Landing({ onGetStarted, onSignIn }) {
             <div style={{ animation: 'pageEnter 0.4s' }}>
               <div style={{ position: 'relative', marginBottom: '1.25rem' }}>
                 <Search size={18} style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
-                <input 
-                  type="text" 
-                  className="form-input" 
+                <input
+                  type="text"
+                  className="form-input"
                   placeholder="Simulate search (e.g. type 'MX', 'Apple', 'Keyboard')..."
                   style={{ width: '100%', paddingLeft: '2.75rem', background: 'rgba(0,0,0,0.2)' }}
                   value={catalogSearch}
@@ -386,7 +384,7 @@ function Landing({ onGetStarted, onSignIn }) {
 
             {/* Feature 4 */}
             <div className="glass-panel" style={{ padding: '2.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <div className="kpi-icon-wrapper secondary" style={{ width: '48px', height: '48px', borderRadius: '12px', color: 'var(--accent)', backgroundColor: 'var(--accent-glow)', border: '1px solid rgba(217, 70, 239, 0.2)' }}>
+              <div className="kpi-icon-wrapper secondary" style={{ width: '48px', height: '48px', borderRadius: '12px', color: 'var(--primary)', backgroundColor: 'var(--primary-glow)', border: '1px solid rgba(163, 230, 53, 0.2)' }}>
                 <ShoppingCart size={24} />
               </div>
               <h3 style={{ fontSize: '1.3rem', fontWeight: '700' }}>Order Processing</h3>
@@ -431,10 +429,10 @@ function Landing({ onGetStarted, onSignIn }) {
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <h2 style={{ fontSize: '2.5rem', fontFamily: 'var(--font-display)', fontWeight: 800, marginBottom: '0.75rem' }}>Simple, Transparent Pricing</h2>
           <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', marginBottom: '2rem' }}>Choose the scale that fits your warehouse operations.</p>
-          
+
           {/* Custom Billing Cycle Toggle */}
           <div style={{ display: 'inline-flex', alignItems: 'center', background: 'rgba(255,255,255,0.03)', padding: '0.3rem', borderRadius: '99px', border: '1px solid var(--border-color)' }}>
-            <button 
+            <button
               onClick={() => setBillingCycle('monthly')}
               style={{
                 background: billingCycle === 'monthly' ? 'var(--primary)' : 'transparent',
@@ -449,7 +447,7 @@ function Landing({ onGetStarted, onSignIn }) {
             >
               Monthly
             </button>
-            <button 
+            <button
               onClick={() => setBillingCycle('annual')}
               style={{
                 background: billingCycle === 'annual' ? 'var(--primary)' : 'transparent',
@@ -482,7 +480,7 @@ function Landing({ onGetStarted, onSignIn }) {
               </span>
               <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>/ month</span>
             </div>
-            
+
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2.5rem', flexGrow: 1 }}>
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem' }}><Check size={16} style={{ color: 'var(--primary)' }} /> Up to 1,000 SKUs</li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem' }}><Check size={16} style={{ color: 'var(--primary)' }} /> 2 Operations Accounts</li>
@@ -503,7 +501,7 @@ function Landing({ onGetStarted, onSignIn }) {
               </span>
               <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>/ month</span>
             </div>
-            
+
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2.5rem', flexGrow: 1 }}>
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem' }}><Check size={16} style={{ color: 'var(--secondary)' }} /> **Unlimited SKUs**</li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem' }}><Check size={16} style={{ color: 'var(--secondary)' }} /> 10 Operations Accounts</li>
@@ -525,7 +523,7 @@ function Landing({ onGetStarted, onSignIn }) {
               </span>
               <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>/ month</span>
             </div>
-            
+
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2.5rem', flexGrow: 1 }}>
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem' }}><Check size={16} style={{ color: 'var(--primary)' }} /> Everything in Growth</li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem' }}><Check size={16} style={{ color: 'var(--primary)' }} /> Unlimited Staff Accounts</li>
@@ -554,8 +552,8 @@ function Landing({ onGetStarted, onSignIn }) {
 
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           {FAQ_ITEMS.map((item, idx) => (
-            <div 
-              key={idx} 
+            <div
+              key={idx}
               className={`faq-item ${activeFaq === idx ? 'active' : ''}`}
               onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
             >

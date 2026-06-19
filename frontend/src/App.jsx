@@ -18,7 +18,7 @@ function App() {
   };
 
   const getAvatarColor = (name) => {
-    const palette = ['#6366f1', '#06b6d4', '#10b981', '#f59e0b', '#ef4444', '#ec4899', '#8b5cf6', '#14b8a6'];
+    const palette = ['#a3e635', '#e6e3e0', '#10b981', '#f59e0b', '#ef4444', '#71717a', '#bef264', '#14b8a6'];
     let hash = 0;
     for (let i = 0; i < name.length; i++) {
       hash = name.charCodeAt(i) + ((hash << 5) - hash);
@@ -37,7 +37,7 @@ function App() {
   const showToast = (message, type = 'success') => {
     const id = Date.now();
     setToasts((prev) => [...prev, { id, message, type }]);
-    
+
     // Auto remove after 4 seconds
     setTimeout(() => {
       setToasts((prev) => prev.filter((toast) => toast.id !== id));
@@ -112,20 +112,20 @@ function App() {
     if (showAuth) {
       return (
         <>
-          <Auth 
+          <Auth
             initialView={initialAuthTab}
             onBackToHome={() => setShowAuth(false)}
             onLoginSuccess={(newToken) => {
               localStorage.setItem('token', newToken);
               setToken(newToken);
-            }} 
-            showToast={showToast} 
+            }}
+            showToast={showToast}
           />
           {/* Toast Drawer for Auth */}
           <div className="toast-container">
             {toasts.map((toast) => (
-              <div 
-                key={toast.id} 
+              <div
+                key={toast.id}
                 className={`toast toast-${toast.type}`}
                 onClick={() => removeToast(toast.id)}
                 style={{ cursor: 'pointer' }}
@@ -140,7 +140,7 @@ function App() {
     }
 
     return (
-      <Landing 
+      <Landing
         onGetStarted={() => {
           setInitialAuthTab('signup');
           setShowAuth(true);
@@ -158,17 +158,15 @@ function App() {
       {/* Sidebar Navigation */}
       <aside className="sidebar">
         <div className="sidebar-logo">
-          <div className="kpi-icon-wrapper primary" style={{ width: '40px', height: '40px', borderRadius: '8px' }}>
-            <Package size={20} />
-          </div>
+          <img src="/inventory-management-app_hero-img.png" alt="Logo" style={{ width: '40px', height: '40px', borderRadius: '8px', objectFit: 'contain' }} />
           <span className="gradient-text" style={{ fontSize: '1.4rem' }}>Ethara Stock</span>
         </div>
-        
+
         <nav>
           <ul className="sidebar-menu">
             <li>
-              <button 
-                onClick={() => setActiveTab('dashboard')} 
+              <button
+                onClick={() => setActiveTab('dashboard')}
                 className={`sidebar-link ${activeTab === 'dashboard' ? 'active' : ''}`}
                 style={{ background: 'none', border: 'none', width: '100%', textAlign: 'left' }}
               >
@@ -177,8 +175,8 @@ function App() {
               </button>
             </li>
             <li>
-              <button 
-                onClick={() => setActiveTab('products')} 
+              <button
+                onClick={() => setActiveTab('products')}
                 className={`sidebar-link ${activeTab === 'products' ? 'active' : ''}`}
                 style={{ background: 'none', border: 'none', width: '100%', textAlign: 'left' }}
               >
@@ -187,8 +185,8 @@ function App() {
               </button>
             </li>
             <li>
-              <button 
-                onClick={() => setActiveTab('customers')} 
+              <button
+                onClick={() => setActiveTab('customers')}
                 className={`sidebar-link ${activeTab === 'customers' ? 'active' : ''}`}
                 style={{ background: 'none', border: 'none', width: '100%', textAlign: 'left' }}
               >
@@ -197,8 +195,8 @@ function App() {
               </button>
             </li>
             <li>
-              <button 
-                onClick={() => setActiveTab('orders')} 
+              <button
+                onClick={() => setActiveTab('orders')}
                 className={`sidebar-link ${activeTab === 'orders' ? 'active' : ''}`}
                 style={{ background: 'none', border: 'none', width: '100%', textAlign: 'left' }}
               >
@@ -212,14 +210,14 @@ function App() {
         {/* User Profile & Sign Out Panel */}
         <div className="sidebar-profile-panel" style={{ marginTop: 'auto', paddingTop: '1.5rem', borderTop: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0 0.5rem' }}>
-            <div 
-              className="crm-avatar" 
-              style={{ 
-                width: '36px', 
-                height: '36px', 
+            <div
+              className="crm-avatar"
+              style={{
+                width: '36px',
+                height: '36px',
                 fontSize: '0.8rem',
                 backgroundColor: getAvatarColor(user?.username || 'user'),
-                flexShrink: 0 
+                flexShrink: 0
               }}
             >
               {getInitials(user?.username || 'US')}
@@ -233,8 +231,8 @@ function App() {
               </p>
             </div>
           </div>
-          
-          <button 
+
+          <button
             onClick={handleLogout}
             className="sidebar-link sidebar-signout-btn"
             style={{ background: 'none', border: 'none', width: '100%', textAlign: 'left', display: 'flex', gap: '1rem', color: 'var(--danger)', cursor: 'pointer', padding: '0.75rem 1.25rem' }}
@@ -256,8 +254,8 @@ function App() {
       {/* Toast Alert Drawer */}
       <div className="toast-container">
         {toasts.map((toast) => (
-          <div 
-            key={toast.id} 
+          <div
+            key={toast.id}
             className={`toast toast-${toast.type}`}
             onClick={() => removeToast(toast.id)}
             style={{ cursor: 'pointer' }}

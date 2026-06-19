@@ -135,13 +135,13 @@ function Customers({ showToast }) {
   // Helper: Hash Color generator
   const getAvatarColor = (name) => {
     const palette = [
-      '#6366f1', // Indigo
-      '#06b6d4', // Teal/Cyan
+      '#a3e635', // Lime
+      '#e6e3e0', // Beige
       '#10b981', // Emerald
       '#f59e0b', // Amber
       '#ef4444', // Red
-      '#ec4899', // Pink
-      '#8b5cf6', // Purple
+      '#71717a', // Zinc
+      '#bef264', // Lime Accent
       '#14b8a6'  // Teal
     ];
     let hash = 0;
@@ -176,7 +176,7 @@ function Customers({ showToast }) {
       </div>
 
       {/* Search and Filters */}
-      <div className="glass-panel" style={{ padding: '1rem 1.5rem', display: 'flex', gap: '1.1rem', alignItems: 'center', marginBottom: '2rem', background: 'rgba(12, 15, 29, 0.4)' }}>
+      <div className="glass-panel" style={{ padding: '1rem 1.5rem', display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '2rem', background: 'var(--bg-secondary)' }}>
         <Search size={20} style={{ color: 'var(--text-muted)' }} />
         <input
           type="text"
