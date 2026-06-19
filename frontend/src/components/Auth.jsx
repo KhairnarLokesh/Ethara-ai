@@ -220,9 +220,16 @@ function Auth({ onLoginSuccess, showToast, onBackToHome, initialView = 'signin' 
           client_id: clientId,
           callback: handleGoogleLoginCallback
         });
+        const buttonWidth = Math.min(380, window.innerWidth - 80);
         window.google.accounts.id.renderButton(
           document.getElementById('google-signin-btn'),
-          { theme: 'outline', size: 'large', width: '100%', text: 'signin_with' }
+          { 
+            theme: 'outline', 
+            size: 'large', 
+            width: buttonWidth, 
+            text: 'signin_with',
+            shape: 'rectangular' 
+          }
         );
       } catch (err) {
         console.error('Google ID initialization failed:', err);
@@ -590,7 +597,7 @@ function Auth({ onLoginSuccess, showToast, onBackToHome, initialView = 'signin' 
             </div>
 
             {googleClientId ? (
-              <div id="google-signin-btn" style={{ width: '100%' }}></div>
+              <div id="google-signin-btn" style={{ width: '100%', display: 'flex', justifyContent: 'center' }}></div>
             ) : (
               <button
                 type="button"
